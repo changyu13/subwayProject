@@ -20,4 +20,6 @@ public class Station {
     Integer id;
     @Column
     String name;
+    @Column
+    Integer linecode;
 }

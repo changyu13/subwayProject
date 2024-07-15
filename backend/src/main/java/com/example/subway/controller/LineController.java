@@ -12,16 +12,19 @@ import java.util.ArrayList;
 
 @RestController
 public class LineController {
+    // 변수 선언
     @Autowired
     SubwayRepository subwayRepository;
+
     @GetMapping("/api/station")
     public ResponseEntity<ArrayList<Station>> getStation() {
         ArrayList<Station> subwayList = new ArrayList<>();
         subwayList = subwayRepository.findAll();
-        if (subwayList==null){
+
+        if (subwayList==null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }
-        else
+        } else {
             return ResponseEntity.status(HttpStatus.OK).body(subwayList);
+        }
     }
 }
