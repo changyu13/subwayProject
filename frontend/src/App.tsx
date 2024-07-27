@@ -1,9 +1,10 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './globals';
+import Path from './pages/Path'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             {/*<Header />*/}
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/path" element={<Path />} />
             </Routes>
           </div>
         </BrowserRouter>

@@ -39,5 +39,11 @@
 
 .inputTime {
   width: 12rem;
-  margin: 0 auto;
+  margin-right: 1rem;
+}
+
+.push {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }

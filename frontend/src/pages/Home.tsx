@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import styles from './Home.module.css'
 import { HiArrowLongRight } from "react-icons/hi2";
-import { Select } from '@mantine/core';
-import { TextInput } from '@mantine/core';
+import { Select, TextInput, Button } from '@mantine/core';
 import { useQueryStation } from '../queries/station';
 
 function Home() {
@@ -17,12 +16,14 @@ function Home() {
     return <div>오류 발생..</div>;
   }
 
-  const stationNamesSet = new Set();
+  const stationNamesSet = new Set<string>();
   for (let i = 0; i < station.data.length; i++) {
     stationNamesSet.add(station.data[i].name);
   }
   const stationNames = Array.from(stationNamesSet);
-
+  const searchPath = () => {
+    alert("test");
+  };
   return (
     <div className={styles.box}>
       <div className={styles.title}>목적지를 설정하세요!</div>
@@ -47,7 +48,7 @@ function Home() {
           />
         </div>
       </div>
-      <div>
+      <div className={styles.push}>
         <TextInput
           label="Input Current Time"
           placeholder="XX:XX"
@@ -55,6 +56,7 @@ function Home() {
           value={time}
           onChange={(event) => setTime(event.currentTarget.value)}
         />
+        <Button variant="filled"></Button>
       </div>
     </div>
 
