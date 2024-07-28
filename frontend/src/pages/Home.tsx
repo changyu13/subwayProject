@@ -56,7 +56,7 @@ function Home() {
           value={time}
           onChange={(event) => setTime(event.currentTarget.value)}
         />
-        <Button variant="filled"></Button>
+        <Button variant="filled">Button</Button>
       </div>
     </div>
 

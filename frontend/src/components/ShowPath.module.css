@@ -4,17 +4,6 @@
   flex-direction: column;
 }
 
-.title {
-  text-align: center;
-  font-size: 1.5em;
-  color: #044104;
-}
-
-.navigator {
-  display: block;
-  height: 10rem;
-}
-
 .container {
   display: flex;
   align-items: baseline;
@@ -22,10 +11,10 @@
 }
 
 .station {
-  min-width: 10rem;
-  height: 10rem;
-  background-color: #068506;
-  border-radius: 50%;
+  min-width: 4rem;
+  height: 2rem;
+  background-color: #e9f8a5;
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;

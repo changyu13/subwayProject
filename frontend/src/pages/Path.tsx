@@ -2,6 +2,7 @@ import { ReactNode, useState } from 'react';
 import styles from './Path.module.css'
 import { Select } from '@mantine/core';
 import { useQueryStation } from '../queries/station';
+import ShowPath from '../components/ShowPath';
 function Path() {
   const [startValue, setStartValue] = useState<string | null>('');
   const [endValue, setEndValue] = useState<string | null>('');
@@ -23,42 +24,43 @@ function Path() {
     alert("test");
   };
   const timeSchedule: number[] = [4, 4, 8, 4];
+  const timeSchedule2: number[] = [2, 5, 7, 3];
+  const timeSchedule3: number[] = [4, 6, 20, 8];
+  const timeSchedule4: number[] = [4, 4, 8, 4];
   const color: string[] = ["blue", "green", "orange", "purple"];
-  const showTransfer: ReactNode[] = [];
+  const pathList: ReactNode[] = [];
+  const displayTime: ReactNode[] = [];
   let sum: number = 0;
   for (let i = 0; i < 4; i++) {
     sum += timeSchedule[i];
   }
-  for (let i = 0; i < 4; i++) {
-    showTransfer.push(
-      <div style={{
-        width: (timeSchedule[i] / sum) * 100 + "%",
-        backgroundColor: color[i]
-      }}></div>
-    )
-  }
+
 
   return (
-    <div className={styles.container}>
-      <div className={styles.station}>
-        <Select className={styles.search}
-          placeholder="Pick one"
-          searchable
-          data={stationNames}
-          value={startValue}
-          onChange={setStartValue}
-        />
+    <div className={styles.box}>
+      <div className={styles.navigator}>
       </div>
-      <div className={styles.path}>
-        {showTransfer}
-      </div>
-      <div className={styles.station}>
-        <Select className={styles.search}
-          placeholder="Pick one"
-          searchable
-          data={stationNames}
-          value={endValue}
-          onChange={setEndValue}
+      <div className={styles.title}>경로를 설정하세요!</div>
+      <ShowPath
+        stationNames={stationNames}
+        startValue={startValue}
+        setStartValue={setStartValue}
+        endValue={endValue}
+        setEndValue={setEndValue}
+        num={timeSchedule.length}
+        timeSchedule={timeSchedule}
+        color={color}
+      />
+      <div className={styles.otherPath}>
+        <ShowPath
+          stationNames={stationNames}
+          startValue={startValue}
+          setStartValue={setStartValue}
+          endValue={endValue}
+          setEndValue={setEndValue}
+          num={timeSchedule2.length}
+          timeSchedule={timeSchedule2}
+          color={color}
         />
       </div>
     </div>
